@@ -1,4 +1,6 @@
 @import url(fontawesome-all.min.css);
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
+
 /*
 	Stellar by HTML5 UP
 	html5up.net | @ajlkn
@@ -102,6 +104,10 @@ input, select, textarea {
 		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #1a1a1a  15%, #5f4d93 85%);
 		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #1a1a1a2 15%, #5f4d93 85%);
 		background-image: url("images/overlay.png"), linear-gradient(45deg, #1a1a1a 15%, #6a5e8e 85%);
+		/* background-image: url("../../images/1.jpg"), -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%); */
+		/* background-image: url("../../images/1.jpg"), -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%); */
+		/* background-image: url("../../images/1.jpg"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%); */
+		/* background-image: url("../../images/1.jpg"), linear-gradient(45deg, #e37682 15%, #5f4d93 85%); */
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {

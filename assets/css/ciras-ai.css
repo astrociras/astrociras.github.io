@@ -1,0 +1,453 @@
+:root {
+  --ink: #111827;
+  --ink-deep: #0b0f19;
+  --paper: #fffefc;
+  --paper-warm: #f4f1ea;
+  --violet: #7c6cff;
+  --teal: #2dd4bf;
+  --terracotta: #e76f51;
+  --text: #4b5565;
+  --muted: #6b7280;
+  --line: #d8d9de;
+}
+
+html { scroll-behavior: smooth; }
+
+body,
+input,
+select,
+textarea {
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 350;
+  line-height: 1.7;
+}
+
+body {
+  margin: 0;
+  background: var(--ink-deep);
+  color: rgba(255, 255, 255, 0.78);
+  overflow-x: hidden;
+}
+
+body.is-preload #header.alt > * { opacity: 1; }
+body.is-preload #header.alt .ciras-mark { transform: none; }
+
+.skip-link {
+  position: fixed;
+  top: .75rem;
+  left: .75rem;
+  z-index: 20000;
+  transform: translateY(-180%);
+  padding: .65rem .9rem;
+  border: 0;
+  background: #fff;
+  color: var(--ink-deep);
+  font-weight: 700;
+}
+.skip-link:focus { transform: translateY(0); }
+
+#wrapper { width: 100%; max-width: none; margin: 0; }
+
+/* Hero */
+#header.hero {
+  position: relative;
+  min-height: min(800px, 82vh);
+  display: flex;
+  align-items: center;
+  padding: clamp(6rem, 11vw, 9rem) clamp(1.5rem, 5vw, 5rem) clamp(5rem, 8vw, 7rem);
+  text-align: left;
+  isolation: isolate;
+  background-color: var(--ink-deep);
+  background-image:
+    linear-gradient(90deg, rgba(11, 15, 25, .96) 0%, rgba(17, 24, 39, .84) 45%, rgba(17, 24, 39, .32) 100%),
+    url("../../images/backgrounds/hero-cosmos-territory.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+@supports (background-image: image-set(url("../../images/backgrounds/hero-cosmos-territory.webp") type("image/webp"))) {
+  #header.hero {
+    background-image:
+      linear-gradient(90deg, rgba(11, 15, 25, .96) 0%, rgba(17, 24, 39, .84) 45%, rgba(17, 24, 39, .32) 100%),
+      image-set(
+        url("../../images/backgrounds/hero-cosmos-territory.webp") type("image/webp"),
+        url("../../images/backgrounds/hero-cosmos-territory.jpg") type("image/jpeg")
+      );
+  }
+}
+
+.hero-inner { width: min(72rem, 100%); margin: 0 auto; }
+.ciras-mark { display: block; width: clamp(12rem, 25vw, 19rem); height: auto; margin: 0 0 2rem; }
+.eyebrow {
+  margin: 0 0 .8rem;
+  color: rgba(255, 255, 255, .74);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+#header.hero h1 {
+  margin: 0 0 .55rem;
+  color: #fff;
+  font-size: clamp(3.8rem, 8vw, 7rem);
+  font-weight: 300;
+  letter-spacing: -.05em;
+  line-height: .96;
+}
+.project-title {
+  max-width: 56rem;
+  margin: 0 0 1.35rem;
+  color: rgba(255, 255, 255, .92);
+  font-size: clamp(1.1rem, 2vw, 1.5rem) !important;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.hero-lead {
+  max-width: 47rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, .82);
+  font-size: clamp(1rem, 1.55vw, 1.2rem) !important;
+  line-height: 1.65;
+}
+.language-switch {
+  position: absolute;
+  top: max(1.2rem, env(safe-area-inset-top));
+  right: max(1.4rem, env(safe-area-inset-right));
+  z-index: 2;
+  padding: .3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .55);
+  color: #fff;
+  font-size: .84rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.language-switch:hover,
+.language-switch:focus-visible { color: var(--teal); border-bottom-color: var(--teal); }
+
+.hero-actions { margin-top: .35rem; }
+.hero-actions .button {
+  border-radius: 2px;
+  font-weight: 650;
+  letter-spacing: .01em;
+}
+.hero-actions .button.primary { background: var(--violet); box-shadow: none; }
+.hero-actions .button.primary:hover { background: #6554ef; }
+.hero-actions .button:not(.primary):hover,
+.hero-actions .button:not(.primary):focus-visible { border-color: var(--teal); background: rgba(45, 212, 191, .08); }
+
+/* Institutional identity: plain and legible */
+.institutional-band {
+  background: #151a27;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.institutional-inner {
+  width: min(72rem, calc(100% - 3rem));
+  min-height: 7.4rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.2rem 0;
+}
+.vriic-logo { width: min(28rem, 44vw); height: auto; }
+.usach-logo { width: 4rem; height: auto; flex: 0 0 auto; }
+.institution-divider { width: 1px; align-self: stretch; background: rgba(255, 255, 255, .16); }
+.institutional-inner p {
+  margin: 0 0 0 auto;
+  max-width: 17rem;
+  color: rgba(255, 255, 255, .64);
+  font-size: .86rem;
+  line-height: 1.5;
+  text-align: right;
+}
+
+/* Navigation: text, not pills */
+#nav,
+#nav.alt {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
+  max-width: none;
+  padding: .55rem 1rem;
+  border-radius: 0;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 254, 252, .98);
+  color: var(--ink);
+  box-shadow: none;
+}
+#nav ul { display: flex; align-items: center; justify-content: center; gap: 1.3rem; }
+#nav ul li { margin: 0; }
+#nav ul li a {
+  height: auto;
+  min-height: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+  padding: .35rem 0;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--ink);
+  font-size: .9rem;
+  font-weight: 550;
+  line-height: 1.2;
+}
+#nav ul li a.active { background: transparent; color: var(--ink); border-bottom-color: var(--violet); }
+#nav ul li a:hover { background: transparent; color: #5f50df; border-bottom-color: rgba(124, 108, 255, .42); }
+#nav .nav-language { margin-left: .3rem; color: #5f50df; font-weight: 750; }
+#nav + #main { padding-top: 0; }
+
+/* Main: editorial sections without a floating card shell */
+#main {
+  width: 100%;
+  margin: 0;
+  overflow: visible;
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--text);
+  box-shadow: none;
+}
+#main h1, #main h2, #main h3, #main h4 { color: var(--ink); }
+#main a:not(.button) { color: #5f50df; }
+#main a:not(.button):hover { color: #4338ca; }
+#main > .main {
+  padding: clamp(4rem, 7vw, 6.5rem) max(clamp(1.5rem, 7vw, 6rem), calc((100vw - 72rem) / 2));
+  border-top: 1px solid var(--line);
+}
+#main > .main:first-child { border-top: 0; }
+#main header.major { margin-bottom: 2.5rem; }
+#main header.major h2 {
+  margin-bottom: .9rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 350;
+  letter-spacing: -.03em;
+  line-height: 1.12;
+}
+#main header.major h2::after { display: none; }
+#main header.major p {
+  max-width: 48rem;
+  margin: 1.1rem auto 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+}
+.section-narrow { max-width: 55rem; margin: 0 auto; text-align: left; }
+.section-narrow header.major { text-align: left; }
+.lead-copy { color: #394254; font-size: clamp(1.08rem, 1.7vw, 1.24rem); line-height: 1.75; }
+.soft-section { background: var(--paper-warm); }
+
+/* Pillars: representative images and plain copy */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+.pillar { margin: 0; }
+.pillar-image { display: block; margin: 0 0 1.35rem; overflow: hidden; background: #d9dce3; }
+.pillar-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: none;
+}
+.pillar-copy { border-top: 3px solid var(--violet); padding-top: 1rem; }
+.pillar:nth-child(2) .pillar-copy { border-top-color: var(--teal); }
+.pillar:nth-child(3) .pillar-copy { border-top-color: var(--terracotta); }
+.pillar h3 { margin: 0 0 .75rem; font-size: 1.2rem; font-weight: 650; line-height: 1.3; }
+.pillar p { margin: 0; color: #5d6877; font-size: .95rem; }
+.areas-block { margin-top: 4rem; }
+.areas-block h3 { margin-bottom: 1.2rem; font-size: 1.05rem; font-weight: 650; }
+.area-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.area-list li {
+  padding: .85rem 0;
+  border-bottom: 1px solid var(--line);
+  color: #4f5c6d;
+  font-size: .92rem;
+}
+.area-list li:nth-child(odd) { padding-right: 2rem; }
+
+/* Chile: no decorative icon or abstract circles */
+#main > .chile-section {
+  background: var(--ink);
+  color: rgba(255, 255, 255, .8);
+}
+.chile-content { max-width: 59rem; }
+#main .chile-section h2 {
+  color: #fff;
+  margin-bottom: 1.2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 350;
+  letter-spacing: -.03em;
+}
+.chile-section p { margin: 0; font-size: 1.08rem; line-height: 1.8; }
+
+/* Team */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 54rem;
+  margin: 0 auto 3.5rem;
+}
+.leadership-card {
+  padding: 1.4rem 0;
+  border-top: 3px solid var(--violet);
+  border-radius: 0;
+  background: transparent;
+}
+.leadership-card:nth-child(2) { border-top-color: var(--teal); }
+.leadership-card .role {
+  margin-bottom: .45rem;
+  color: var(--muted);
+  font-size: .77rem;
+  font-weight: 750;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.leadership-card h3 { margin: 0 0 .25rem; font-size: 1.22rem; font-weight: 650; }
+.leadership-card p:last-child { margin: 0; color: #667284; }
+.team-group { margin-top: 3rem; }
+.team-group h3 { margin-bottom: 1rem; text-align: left; font-size: 1.08rem; font-weight: 650; }
+.name-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 2rem;
+  border-top: 1px solid var(--line);
+}
+.name-grid li {
+  min-height: 0;
+  padding: .72rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: #485568;
+  font-size: .9rem;
+  line-height: 1.35;
+}
+.name-grid.compact { max-width: none; grid-template-columns: repeat(4, 1fr); margin: 0; }
+
+/* Network */
+.network-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; text-align: left; }
+.network-card {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.network-card h3 { margin-bottom: 1rem; padding-bottom: .8rem; border-bottom: 2px solid var(--violet); font-size: 1.08rem; font-weight: 650; }
+.network-card:nth-child(2) h3 { border-bottom-color: var(--teal); }
+.network-card ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.5rem; }
+.network-card li { padding: .55rem 0; border-bottom: 1px solid var(--line); color: #566375; font-size: .91rem; }
+.network-card li::before { display: none; }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr .9fr; gap: 4rem; align-items: start; }
+.contact-grid header.major { margin-bottom: 1.4rem !important; text-align: left; }
+.contact-email { font-size: clamp(1rem, 2vw, 1.22rem); font-weight: 650; overflow-wrap: anywhere; }
+.legacy-card {
+  padding: 1.5rem 0;
+  border-top: 3px solid var(--terracotta);
+  border-radius: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+}
+.legacy-card p { margin-bottom: 1.4rem; }
+.legacy-card .button { border-radius: 2px; border-color: rgba(17, 24, 39, .35); color: var(--ink) !important; }
+
+/* Footer */
+#footer {
+  width: min(72rem, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 4rem 0 2.2rem;
+  color: rgba(255, 255, 255, .62);
+}
+#footer > * { width: calc(50% - 2rem); }
+.footer-ciras { width: 12rem; height: auto; margin-bottom: 1.2rem; }
+.social-links { margin-top: 1.2rem; }
+.social-links a { border-bottom: 1px solid rgba(255, 255, 255, .28); }
+#footer a { color: rgba(255, 255, 255, .82); }
+.footer-meta { font-size: .84rem; }
+#footer .copyright { color: rgba(255, 255, 255, .45); text-align: center; }
+
+/* Focus and motion */
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .001ms !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+}
+
+@media screen and (max-width: 980px) {
+  #header.hero { min-height: 720px; background-position: 62% center; }
+  .institutional-inner { flex-wrap: wrap; gap: 1.2rem; }
+  .vriic-logo { width: min(25rem, 70vw); }
+  .institutional-inner p { width: 100%; max-width: none; margin: 0; text-align: left; }
+  .pillar-grid { grid-template-columns: 1fr; gap: 2.8rem; }
+  .pillar { display: grid; grid-template-columns: minmax(15rem, .8fr) 1fr; gap: 1.8rem; align-items: start; }
+  .pillar-image { margin: 0; }
+  .name-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .name-grid.compact { grid-template-columns: repeat(2, 1fr); }
+  .network-grid, .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid { gap: 2.5rem; }
+}
+
+@media screen and (max-width: 736px) {
+  #header.hero {
+    min-height: 680px;
+    padding: 6.2rem 1.5rem 4.4rem;
+    background-position: 64% center;
+    background-image:
+      linear-gradient(90deg, rgba(11, 15, 25, .96), rgba(17, 24, 39, .76)),
+      url("../../images/backgrounds/hero-cosmos-territory.jpg");
+  }
+  .ciras-mark { width: 13.5rem; margin-bottom: 1.6rem; }
+  #header.hero h1 { font-size: clamp(3.7rem, 17vw, 5.4rem); }
+  .project-title { font-size: 1.08rem !important; }
+  .hero-lead { font-size: .98rem !important; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .hero-actions li { width: 100%; padding: 0; }
+  .hero-actions .button { width: 100%; }
+  .language-switch { top: 1rem; right: 1rem; }
+
+  .institutional-inner { width: calc(100% - 2rem); padding: 1.2rem 0; }
+  .vriic-logo { width: calc(100% - 5rem); }
+  .usach-logo { width: 3.5rem; }
+  .institution-divider { display: none; }
+
+  #nav, #nav.alt { display: block; overflow-x: auto; padding: .45rem .7rem; }
+  #nav ul { width: max-content; min-width: 100%; justify-content: flex-start; gap: 1rem; }
+  #nav ul li a { min-height: 2.3rem; font-size: .84rem; }
+
+  #main > .main { padding: 3.7rem 1.35rem; }
+  #main header.major { margin-bottom: 2rem; }
+  #main header.major h2 { font-size: 2.1rem; }
+  .pillar { display: block; }
+  .pillar-image { margin-bottom: 1.2rem; }
+  .area-list { grid-template-columns: 1fr; }
+  .area-list li:nth-child(odd) { padding-right: 0; }
+  .leadership-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+  .name-grid, .name-grid.compact { grid-template-columns: 1fr; }
+  .network-card ul { grid-template-columns: 1fr; }
+
+  #footer { width: calc(100% - 2rem); padding-top: 3.2rem; }
+  #footer > * { width: 100%; }
+}
+
+@media screen and (max-width: 380px) {
+  #header.hero h1 { font-size: 3.4rem; }
+  .eyebrow { font-size: .72rem; }
+  .vriic-logo { width: 100%; }
+  .usach-logo { display: none; }
+}

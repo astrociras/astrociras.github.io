@@ -1,14 +1,29 @@
 :root {
-  --ink: #111827;
-  --ink-deep: #0b0f19;
-  --paper: #fffefc;
-  --paper-warm: #f4f1ea;
-  --violet: #7c6cff;
-  --teal: #2dd4bf;
-  --terracotta: #e76f51;
-  --text: #4b5565;
-  --muted: #6b7280;
-  --line: #d8d9de;
+  /* Main neutrals */
+  --ink: #171419;
+  --ink-deep: #09080b;
+  --paper: #fffaf5;
+  --paper-warm: #f7eee8;
+  --text: #4a444c;
+  --muted: #726b73;
+  --line: #ded6d4;
+
+  /* Inferno-inspired accents */
+  --inferno-purple: #5b167a;
+  --inferno-magenta: #9c2964;
+  --inferno-orange: #e45a36;
+  --inferno-amber: #f2a33b;
+
+  /* Backward-compatible aliases used by the existing components */
+  --violet: var(--inferno-purple);
+  --violet-deep: #43105c;
+  --violet-soft: #f2eaf3;
+  --teal: var(--inferno-orange);
+  --terracotta: var(--inferno-orange);
+
+  /* Subtle USACH institutional signature */
+  --usach-green: #00a499;
+  --usach-orange: #ea7600;
 }
 
 html { scroll-behavior: smooth; }
@@ -450,4 +465,1309 @@ button:focus-visible,
   .eyebrow { font-size: .72rem; }
   .vriic-logo { width: 100%; }
   .usach-logo { display: none; }
+}
+
+
+/* ========================================================================
+   CIRAS-AI PAGE COMPONENTS AND FINAL VISUAL OVERRIDES
+   ------------------------------------------------------------------------
+   These rules previously lived inside index.html and en/index.html.
+   Keeping them here makes both language pages shorter and easier to edit.
+   ======================================================================== */
+
+/* Small page-specific additions for the three-person leadership row
+   and the highlighted CIRAS-AI learning community. */
+.leadership-grid.leadership-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 72rem;
+}
+.leadership-grid-three .leadership-card:nth-child(3) {
+  border-top-color: var(--terracotta);
+}
+.community-learning {
+  margin-top: 3.25rem;
+  padding: 1.6rem 0 0;
+  border-top: 3px solid var(--terracotta);
+  text-align: left;
+}
+.community-learning .role {
+  margin: 0 0 .5rem;
+  color: var(--muted);
+  font-size: .77rem;
+  font-weight: 750;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.community-learning h3 {
+  margin: 0 0 .8rem;
+  font-size: 1.35rem;
+  font-weight: 650;
+}
+.community-learning p {
+  max-width: 55rem;
+  color: #566375;
+}
+.community-learning .button {
+  border-radius: 2px;
+}
+.contact-person {
+  margin: 0 0 1.25rem;
+}
+.contact-person strong {
+  display: block;
+  color: var(--ink);
+}
+.contact-person .contact-email {
+  margin: .2rem 0 0;
+}
+@media screen and (max-width: 980px) {
+  .leadership-grid.leadership-grid-three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 736px) {
+  .leadership-grid.leadership-grid-three {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Refined editorial treatment: quieter, more concrete, and less "startup-like". */
+html {
+  scroll-behavior: auto;
+  scroll-padding-top: 4.25rem;
+}
+#header[id],
+#main > section[id] {
+  scroll-margin-top: 4.25rem;
+}
+
+/* Editorial split hero: text on a calm solid field, photography given its own space. */
+#header.hero {
+  min-height: 44rem;
+  padding: 0 !important;
+  display: grid;
+  align-items: stretch;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #111827 !important;
+}
+#header.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0 0 0 47%;
+  background-image: url("../../images/backgrounds/hero-cosmos-territory.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#header.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      #111827 0%,
+      #111827 43%,
+      rgba(17, 24, 39, .98) 48%,
+      rgba(17, 24, 39, .48) 61%,
+      rgba(17, 24, 39, .06) 78%);
+}
+#header.hero .hero-inner {
+  width: min(72rem, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 7.25rem 0 6.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+#header.hero .ciras-mark {
+  width: clamp(10rem, 17vw, 14.5rem);
+  margin: 0 0 2.15rem;
+}
+#header.hero h1 {
+  font-size: clamp(4.2rem, 7vw, 6.6rem);
+  font-weight: 350;
+  letter-spacing: -.045em;
+}
+#header.hero .project-title {
+  max-width: 35rem;
+  font-size: clamp(1.08rem, 1.6vw, 1.34rem) !important;
+  line-height: 1.42;
+}
+#header.hero .hero-lead {
+  max-width: 38rem;
+  font-size: clamp(1rem, 1.25vw, 1.12rem) !important;
+  line-height: 1.72;
+}
+.hero-actions .button.primary {
+  background: #f4f1ea;
+  color: #111827 !important;
+}
+.hero-actions .button.primary:hover,
+.hero-actions .button.primary:focus-visible {
+  background: #ffffff;
+}
+.hero-actions .button:not(.primary) {
+  border-color: rgba(255,255,255,.58);
+}
+
+/* Reduce ornamental color-coding and card language. */
+.pillar-grid {
+  display: block;
+}
+.pillar {
+  display: grid;
+  grid-template-columns: minmax(20rem, .9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+  padding: 2.4rem 0;
+  border-top: 1px solid var(--line);
+}
+.pillar:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.pillar-image {
+  margin: 0;
+}
+.pillar-copy,
+.pillar:nth-child(2) .pillar-copy,
+.pillar:nth-child(3) .pillar-copy {
+  padding: 0;
+  border: 0;
+}
+.pillar h3 {
+  margin-bottom: .9rem;
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 520;
+  letter-spacing: -.015em;
+}
+.pillar p {
+  font-size: 1rem;
+  line-height: 1.72;
+}
+.areas-block {
+  margin-top: 4.25rem;
+}
+.area-list {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.area-list li {
+  display: flex;
+  align-items: center;
+  min-height: 5.5rem;
+  padding: 1rem 1.25rem;
+  border: 0;
+  border-left: 1px solid var(--line);
+  line-height: 1.42;
+}
+.area-list li:first-child {
+  border-left: 0;
+}
+.area-list li:nth-child(odd) {
+  padding-right: 1.25rem;
+}
+
+/* Leadership is a directory, not a set of promotional cards. */
+.leadership-grid.leadership-grid-three {
+  max-width: 72rem;
+  gap: 2.5rem;
+  margin-bottom: 4.2rem;
+}
+.leadership-card,
+.leadership-grid-three .leadership-card:nth-child(3),
+.leadership-card:nth-child(2) {
+  padding: 1.2rem 0 1.45rem;
+  border-top: 1px solid #111827;
+}
+.leadership-card h3 {
+  font-size: 1.28rem;
+  font-weight: 560;
+}
+.leadership-card a {
+  border-bottom: 1px solid rgba(17,24,39,.22);
+}
+
+/* Linked researcher directory. */
+.team-group {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.name-grid {
+  gap: 0 2.4rem;
+}
+.name-grid li {
+  padding: 0;
+}
+.name-grid li a {
+  min-height: 3.45rem;
+  padding: .82rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  border: 0 !important;
+  border-bottom: 1px solid var(--line) !important;
+  color: #283244 !important;
+  font-weight: 510;
+  text-decoration: none;
+}
+.name-grid li a::after {
+  content: "↗";
+  flex: 0 0 auto;
+  color: #7a8494;
+  font-size: .82rem;
+  opacity: .7;
+}
+.name-grid li a:hover,
+.name-grid li a:focus-visible {
+  color: #4338ca !important;
+  border-bottom-color: #4338ca !important;
+}
+
+/* Lists use spacing and rules rather than boxes, colored stripes, or icons. */
+.network-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(3rem, 7vw, 6rem);
+  max-width: 68rem;
+  margin: 0 auto;
+}
+.network-card h3,
+.network-card:nth-child(2) h3 {
+  margin-bottom: .5rem;
+  padding: 0 0 1rem;
+  border: 0;
+  border-bottom: 1px solid #111827;
+  font-size: 1.12rem;
+  font-weight: 560;
+}
+.network-card ul {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.network-card li {
+  padding: .72rem 0;
+  border-bottom: 1px solid var(--line);
+  color: #465266;
+  font-size: .95rem;
+}
+.community-learning {
+  max-width: 68rem;
+  margin: 4rem auto 0;
+  padding: 1.9rem 0 0 1.5rem;
+  border-top: 1px solid var(--line);
+  border-left: 4px solid #e76f51;
+}
+.community-learning .role {
+  color: #7a4a3f;
+}
+.community-learning h3 {
+  font-size: 1.55rem;
+  font-weight: 540;
+}
+.community-learning .button.primary {
+  background: transparent;
+  color: #111827 !important;
+  border: 1px solid rgba(17,24,39,.45);
+}
+.community-learning .button.primary:hover,
+.community-learning .button.primary:focus-visible {
+  background: #111827;
+  color: #fff !important;
+}
+
+/* Contact and legacy link: quiet typographic hierarchy. */
+.contact-person {
+  padding: .9rem 0;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-person:first-of-type {
+  border-top: 1px solid var(--line);
+}
+.legacy-card {
+  border-top: 1px solid #111827;
+}
+
+/* Fast, predictable navigation: no section fade or long easing. */
+#main > .main,
+#main > .main.inactive {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+@media screen and (max-width: 980px) {
+  #header.hero {
+    min-height: 42rem;
+  }
+  #header.hero::before {
+    left: 42%;
+  }
+  #header.hero::after {
+    background:
+      linear-gradient(90deg,
+        #111827 0%,
+        #111827 38%,
+        rgba(17,24,39,.97) 48%,
+        rgba(17,24,39,.38) 72%);
+  }
+  .pillar {
+    grid-template-columns: minmax(15rem, .82fr) minmax(0, 1fr);
+  }
+  .area-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .area-list li:nth-child(4) {
+    border-left: 0;
+  }
+  .area-list li:nth-child(n+4) {
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #header.hero {
+    min-height: 43rem;
+    background: #111827 !important;
+  }
+  #header.hero::before {
+    inset: 0;
+    opacity: .48;
+    background-position: 59% center;
+  }
+  #header.hero::after {
+    background: linear-gradient(180deg,
+      rgba(17,24,39,.5) 0%,
+      rgba(17,24,39,.88) 45%,
+      #111827 100%);
+  }
+  #header.hero .hero-inner {
+    width: calc(100% - 3rem);
+    padding: 6.2rem 0 4.5rem;
+    justify-content: flex-end;
+  }
+  #header.hero .ciras-mark {
+    width: 11.5rem;
+  }
+  #header.hero h1 {
+    font-size: clamp(3.7rem, 16vw, 5.2rem);
+  }
+  .pillar {
+    display: block;
+    padding: 2rem 0 2.4rem;
+  }
+  .pillar-image {
+    margin-bottom: 1.25rem;
+  }
+  .area-list {
+    grid-template-columns: 1fr;
+  }
+  .area-list li,
+  .area-list li:first-child,
+  .area-list li:nth-child(4) {
+    min-height: 0;
+    padding: .9rem 0;
+    border-left: 0;
+    border-top: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .network-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .community-learning {
+    padding-left: 1rem;
+  }
+}
+
+/* July 2026 refinement: simpler hero, clearer CIRAS history, and PI disciplines. */
+
+/* Full-bleed hero with less copy and a clearly visible photograph on all screens. */
+#header.hero {
+  min-height: min(52rem, 88svh);
+  display: flex;
+  align-items: stretch;
+  padding: 0 !important;
+  background: #0d1420 !important;
+}
+#header.hero::before {
+  inset: 0;
+  left: 0;
+  opacity: 1;
+  background-position: center 52%;
+}
+#header.hero::after {
+  background:
+    linear-gradient(90deg,
+      rgba(7, 12, 22, .82) 0%,
+      rgba(7, 12, 22, .57) 42%,
+      rgba(7, 12, 22, .18) 78%,
+      rgba(7, 12, 22, .08) 100%),
+    linear-gradient(180deg,
+      rgba(7, 12, 22, .04) 35%,
+      rgba(7, 12, 22, .78) 100%);
+}
+#header.hero .hero-inner {
+  min-height: inherit;
+  width: min(74rem, calc(100% - 3rem));
+  padding: 5.25rem 0 4.5rem;
+  justify-content: flex-end;
+}
+#header.hero .ciras-mark {
+  width: clamp(8.5rem, 13vw, 11.5rem);
+  margin-bottom: 1.55rem;
+}
+#header.hero h1 {
+  margin-bottom: .55rem;
+  font-size: clamp(4rem, 8vw, 6.8rem);
+  line-height: .95;
+}
+#header.hero .project-title {
+  max-width: 43rem;
+  margin-bottom: .75rem;
+  font-size: clamp(1.45rem, 2.6vw, 2.15rem) !important;
+  line-height: 1.18;
+  font-weight: 430;
+  letter-spacing: -.02em;
+}
+#header.hero .hero-lead {
+  max-width: 42rem;
+  margin-bottom: 1.6rem;
+  font-size: clamp(.98rem, 1.35vw, 1.12rem) !important;
+  line-height: 1.58;
+  color: rgba(255,255,255,.88);
+}
+.hero-actions {
+  margin-top: .2rem;
+}
+.hero-actions .button.primary {
+  background: #f4f1ea;
+  color: #111827 !important;
+}
+
+/* VRIIC remains visible, but the strip no longer repeats institutional copy. */
+.institutional-band {
+  padding: 1.15rem 1.5rem;
+}
+.institutional-band .institutional-inner {
+  justify-content: center;
+  min-height: 3.4rem;
+}
+.institutional-band .institutional-inner p {
+  display: none;
+}
+.institutional-band .vriic-logo {
+  width: min(30rem, 86vw);
+  max-height: 4.2rem;
+}
+
+/* Clear explanation of the transition from CIRAS to CIRAS-AI. */
+.about-story {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+.about-story .major {
+  text-align: left;
+}
+.about-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2.5rem, 7vw, 6rem);
+  margin-top: 2.2rem;
+}
+.about-column {
+  padding-top: 1.1rem;
+  border-top: 1px solid #111827;
+}
+.about-label {
+  margin: 0 0 .7rem;
+  color: #6d4b41;
+  font-size: .76rem;
+  font-weight: 750;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.about-column p:last-child {
+  margin-bottom: 0;
+}
+
+/* More natural area and network lists: typographic, not card-like. */
+.area-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 3rem;
+  border: 0;
+}
+.area-list li,
+.area-list li:first-child,
+.area-list li:nth-child(odd) {
+  min-height: 0;
+  padding: .9rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+}
+.area-list li::before {
+  content: "—";
+  margin-right: .65rem;
+  color: #8a5361;
+}
+.network-card li {
+  display: flex;
+  gap: .65rem;
+  padding: .62rem 0;
+  border-bottom: 0;
+}
+.network-card li::before {
+  content: "—";
+  flex: 0 0 auto;
+  color: #8a5361;
+}
+
+/* PI directory: name and discipline read as one concise row. */
+.name-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.name-grid li a {
+  min-height: 4rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 1rem;
+}
+.pi-name {
+  min-width: 0;
+}
+.pi-discipline {
+  max-width: 14rem;
+  color: #778091;
+  font-size: .78rem;
+  font-weight: 560;
+  line-height: 1.35;
+  text-align: right;
+}
+.name-grid li a::after {
+  display: none;
+}
+.name-grid li a:hover .pi-name,
+.name-grid li a:focus-visible .pi-name {
+  color: #4338ca;
+}
+.name-grid li a:hover .pi-discipline,
+.name-grid li a:focus-visible .pi-discipline {
+  color: #5c6472;
+}
+
+/* Slightly quieter contact/legacy wording. */
+.legacy-card p {
+  font-size: 1.04rem;
+}
+
+@media screen and (max-width: 980px) {
+  #header.hero {
+    min-height: 45rem;
+  }
+  #header.hero::before {
+    left: 0;
+    background-position: 60% 50%;
+  }
+  #header.hero::after {
+    background:
+      linear-gradient(90deg,
+        rgba(7, 12, 22, .72) 0%,
+        rgba(7, 12, 22, .34) 75%,
+        rgba(7, 12, 22, .12) 100%),
+      linear-gradient(180deg,
+        rgba(7, 12, 22, .03) 24%,
+        rgba(7, 12, 22, .82) 100%);
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #header.hero {
+    min-height: 40rem;
+    height: 82svh;
+  }
+  #header.hero::before {
+    inset: 0;
+    opacity: 1;
+    background-position: 62% center;
+  }
+  #header.hero::after {
+    background:
+      linear-gradient(180deg,
+        rgba(7, 12, 22, .10) 0%,
+        rgba(7, 12, 22, .16) 34%,
+        rgba(7, 12, 22, .82) 76%,
+        rgba(7, 12, 22, .95) 100%);
+  }
+  #header.hero .hero-inner {
+    width: calc(100% - 2.4rem);
+    min-height: inherit;
+    padding: 5rem 0 3.1rem;
+  }
+  #header.hero .ciras-mark {
+    width: 8.8rem;
+    margin-bottom: 1rem;
+  }
+  #header.hero h1 {
+    font-size: clamp(3.45rem, 16vw, 4.8rem);
+  }
+  #header.hero .project-title {
+    max-width: 21rem;
+    font-size: clamp(1.28rem, 6.2vw, 1.7rem) !important;
+  }
+  #header.hero .hero-lead {
+    max-width: 22rem;
+    font-size: .95rem !important;
+  }
+  .institutional-band {
+    padding: .85rem 1rem;
+  }
+  .institutional-band .vriic-logo {
+    max-height: 3.25rem;
+  }
+  .about-columns,
+  .area-list,
+  .name-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-columns {
+    gap: 2.25rem;
+  }
+  .name-grid li a {
+    grid-template-columns: 1fr;
+    row-gap: .25rem;
+    align-items: start;
+    padding: .8rem 0;
+  }
+  .pi-discipline {
+    max-width: none;
+    text-align: left;
+  }
+}
+
+/* Subtle USACH institutional accents and corrected VRIIC logo proportions. */
+:root {
+  --usach-green: #00A499;
+  --usach-orange: #EA7600;
+}
+
+/* Preserve the VRIIC logo's native aspect ratio at every breakpoint. */
+.institutional-band .vriic-logo,
+.vriic-logo {
+  display: block;
+  width: min(28rem, 86vw);
+  max-width: 100%;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain;
+  flex: 0 1 auto;
+}
+
+/* A very restrained institutional colour cue. */
+.institutional-band {
+  position: relative;
+  background:
+    linear-gradient(90deg,
+      var(--usach-green) 0 50%,
+      var(--usach-orange) 50% 100%) top / 100% 2px no-repeat,
+    #151a27;
+}
+
+/* Use the institutional colours only in small typographic and interaction details. */
+.about-label {
+  color: #9a4d13;
+}
+.area-list li::before,
+.network-card li::before {
+  color: var(--usach-orange);
+}
+.community-learning {
+  border-left-color: var(--usach-green);
+}
+.community-learning .role {
+  color: #087f77;
+}
+.name-grid li a:hover .pi-name,
+.name-grid li a:focus-visible .pi-name,
+a:hover,
+a:focus-visible {
+  border-bottom-color: var(--usach-green);
+}
+.name-grid li a:hover .pi-name,
+.name-grid li a:focus-visible .pi-name {
+  color: #087f77;
+}
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible {
+  outline-color: var(--usach-green);
+}
+
+/* Keep the orange visible but never dominant. */
+.legacy-card {
+  border-top-color: rgba(234, 118, 0, .5);
+}
+
+@media screen and (max-width: 736px) {
+  .institutional-band .vriic-logo,
+  .vriic-logo {
+    width: min(25rem, 92vw);
+    height: auto !important;
+    max-height: none !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .institutional-band .vriic-logo,
+  .vriic-logo {
+    width: 100%;
+    height: auto !important;
+    max-height: none !important;
+  }
+}
+
+/* FIU + VRIIC acknowledgement band */
+.institutional-band .institutional-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.25rem);
+  flex-wrap: wrap;
+}
+.institutional-band .logo-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.25rem);
+  flex-wrap: wrap;
+}
+.institutional-band .fiu-logo {
+  display: block;
+  width: min(18rem, 70vw);
+  height: auto;
+  flex: 0 1 auto;
+  opacity: .96;
+}
+.institutional-band .institutional-separator {
+  width: 1px;
+  height: 3.2rem;
+  background: rgba(255,255,255,.24);
+}
+.institutional-band .funding-note {
+  margin: 0;
+  color: rgba(255,255,255,.78);
+  font-size: .83rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.institutional-band {
+  padding: 1.1rem 1.5rem 1.25rem;
+}
+
+/* Footer acknowledgement line */
+.footer-meta .acknowledgement {
+  color: rgba(255,255,255,.86);
+  font-weight: 500;
+}
+
+/* Improved Learning Community button */
+.community-learning .button.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  background: #111827;
+  color: #ffffff !important;
+  border: 1px solid rgba(17,24,39,.96);
+  border-radius: 999px;
+  padding: 0 1.5rem;
+  box-shadow: 0 8px 24px rgba(17,24,39,.10);
+  transition: transform .16s ease, box-shadow .16s ease, background-color .16s ease, border-color .16s ease;
+}
+.community-learning .button.primary::after {
+  content: "→";
+  font-size: .95rem;
+  line-height: 1;
+  transition: transform .16s ease;
+}
+.community-learning .button.primary:hover,
+.community-learning .button.primary:focus-visible {
+  background: #087f77;
+  border-color: #087f77;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(8,127,119,.18);
+}
+.community-learning .button.primary:hover::after,
+.community-learning .button.primary:focus-visible::after {
+  transform: translateX(2px);
+}
+.community-learning .button.primary:focus-visible {
+  outline: 2px solid rgba(8,127,119,.25);
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 736px) {
+  .institutional-band {
+    padding: .95rem 1rem 1.1rem;
+  }
+  .institutional-band .logo-pair {
+    gap: .9rem 1.25rem;
+  }
+  .institutional-band .institutional-separator {
+    display: none;
+  }
+  .institutional-band .fiu-logo {
+    width: min(15rem, 68vw);
+  }
+  .institutional-band .funding-note {
+    width: 100%;
+    text-align: center;
+    font-size: .76rem;
+  }
+}
+
+/* Palette and logo refinement. */
+:root {
+  --violet-deep: #5f50df;
+  --violet-soft: #f1efff;
+}
+
+/* The hero now relies on the image and typography; the CIRAS isotype
+   is placed in the explanatory section below. */
+#header.hero .hero-inner {
+  padding-top: 6rem;
+}
+#header.hero h1 {
+  margin-top: 0;
+}
+
+/* CIRAS isotype beneath the explanation of the transition to CIRAS-AI. */
+.about-isotype {
+  max-width: 70rem;
+  margin: 3rem auto 0;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.about-isotype img {
+  display: inline-block;
+  width: min(22rem, 72vw);
+  height: auto;
+  opacity: .88;
+}
+
+/* Keep the exact FIU design and its native proportions. */
+.institutional-band .fiu-logo {
+  display: block;
+  width: min(18.5rem, 72vw);
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain;
+}
+
+/* Make purple the principal website accent. */
+.about-label {
+  color: var(--violet-deep);
+}
+.area-list li::before,
+.network-card li::before {
+  color: var(--violet);
+}
+.name-grid li a:hover .pi-name,
+.name-grid li a:focus-visible .pi-name {
+  color: var(--violet-deep);
+}
+.name-grid li a:hover,
+.name-grid li a:focus-visible {
+  border-bottom-color: var(--violet) !important;
+}
+.legacy-card {
+  border-top-color: rgba(124, 108, 255, .5);
+}
+
+/* Learning Community: integrated with the main palette rather than
+   using an isolated institutional green. */
+.community-learning {
+  padding: 2rem 2rem 2.15rem;
+  border-top: 1px solid rgba(124, 108, 255, .24);
+  border-left: 4px solid var(--violet);
+  background: linear-gradient(135deg, rgba(124, 108, 255, .07), rgba(45, 212, 191, .025));
+}
+.community-learning .role {
+  color: var(--violet-deep);
+}
+.community-learning .button.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  min-height: 2.9rem;
+  padding: 0 1.35rem;
+  border: 1px solid var(--violet);
+  border-radius: 3px;
+  background: var(--violet);
+  color: #ffffff !important;
+  box-shadow: none;
+  transition: background-color .16s ease, border-color .16s ease, transform .16s ease;
+}
+.community-learning .button.primary::after {
+  content: "→";
+  font-size: .95rem;
+  line-height: 1;
+  transition: transform .16s ease;
+}
+.community-learning .button.primary:hover,
+.community-learning .button.primary:focus-visible {
+  background: var(--violet-deep);
+  border-color: var(--violet-deep);
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: none;
+}
+.community-learning .button.primary:hover::after,
+.community-learning .button.primary:focus-visible::after {
+  transform: translateX(2px);
+}
+.community-learning .button.primary:focus-visible {
+  outline: 2px solid rgba(124, 108, 255, .32);
+  outline-offset: 3px;
+}
+
+/* Retain the previously requested USACH green/orange only as a very
+   thin institutional signature, not as standalone interface colours. */
+.institutional-band {
+  background:
+    linear-gradient(90deg,
+      var(--usach-green) 0 50%,
+      var(--usach-orange) 50% 100%) top / 100% 2px no-repeat,
+    #151a27;
+}
+
+@media screen and (max-width: 736px) {
+  #header.hero .hero-inner {
+    padding-top: 5rem;
+  }
+  .about-isotype {
+    margin-top: 2.4rem;
+    padding-top: 1.8rem;
+  }
+  .about-isotype img {
+    width: min(19rem, 82vw);
+  }
+  .community-learning {
+    padding: 1.55rem 1.25rem 1.7rem;
+  }
+  .institutional-band .fiu-logo {
+    width: min(16rem, 72vw);
+  }
+}
+
+/* Final small refinements. */
+
+/* Slightly reduce the FIU logo so the raster source remains visually crisp. */
+.institutional-band .fiu-logo {
+  width: min(15.75rem, 64vw) !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* Remove the redundant divider above the CIRAS isotype. */
+.about-isotype {
+  margin-top: 2.35rem;
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* Keep the Learning Community highlight fully within the established
+   violet palette, overriding Stellar's default light-blue primary button. */
+.community-learning {
+  border-left-color: #7c6cff;
+  background: rgba(124, 108, 255, .055);
+}
+#main .community-learning .button.primary,
+#main .community-learning a.button.primary {
+  background-color: #6b5be7 !important;
+  background-image: none !important;
+  border-color: #6b5be7 !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+#main .community-learning .button.primary:hover,
+#main .community-learning .button.primary:focus-visible,
+#main .community-learning a.button.primary:hover,
+#main .community-learning a.button.primary:focus-visible {
+  background-color: #5545cc !important;
+  border-color: #5545cc !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+#main .community-learning .button.primary:active,
+#main .community-learning a.button.primary:active {
+  background-color: #4939b8 !important;
+  border-color: #4939b8 !important;
+}
+
+@media screen and (max-width: 736px) {
+  .institutional-band .fiu-logo {
+    width: min(14rem, 62vw) !important;
+  }
+  .about-isotype {
+    margin-top: 2rem;
+    padding-top: 0;
+  }
+}
+
+
+/* ========================================================================
+   FINAL INFERNO-INSPIRED COLOUR SYSTEM
+   ------------------------------------------------------------------------
+   Near-black is the principal colour. Purple, magenta, orange and amber are
+   used sparingly as accents. The thin USACH green/orange line is retained
+   only as an institutional signature.
+   ======================================================================== */
+
+body {
+  background: var(--ink-deep);
+}
+
+#header.hero {
+  background-color: var(--ink-deep) !important;
+}
+
+#header.hero::after {
+  background:
+    linear-gradient(90deg,
+      rgba(9, 8, 11, .82) 0%,
+      rgba(9, 8, 11, .57) 42%,
+      rgba(9, 8, 11, .18) 78%,
+      rgba(9, 8, 11, .08) 100%),
+    linear-gradient(180deg,
+      rgba(9, 8, 11, .04) 35%,
+      rgba(9, 8, 11, .82) 100%);
+}
+
+.language-switch:hover,
+.language-switch:focus-visible {
+  color: var(--inferno-amber);
+  border-bottom-color: var(--inferno-amber);
+}
+
+.institutional-band {
+  background:
+    linear-gradient(90deg,
+      var(--usach-green) 0 50%,
+      var(--usach-orange) 50% 100%) top / 100% 2px no-repeat,
+    #121014;
+}
+
+#nav,
+#nav.alt {
+  background: rgba(255, 250, 245, .98);
+  color: var(--ink);
+}
+
+#nav ul li a.active {
+  border-bottom-color: var(--inferno-purple);
+}
+
+#nav ul li a:hover,
+#nav .nav-language {
+  color: var(--inferno-magenta);
+}
+
+#nav ul li a:hover {
+  border-bottom-color: rgba(156, 41, 100, .42);
+}
+
+#main {
+  background: var(--paper);
+}
+
+#main a:not(.button) {
+  color: var(--inferno-purple);
+}
+
+#main a:not(.button):hover {
+  color: var(--inferno-magenta);
+}
+
+.soft-section {
+  background: var(--paper-warm);
+}
+
+#main > .chile-section {
+  background: var(--ink);
+}
+
+.about-column,
+.leadership-card,
+.leadership-grid-three .leadership-card:nth-child(3),
+.leadership-card:nth-child(2) {
+  border-top-color: var(--ink);
+}
+
+.about-label {
+  color: var(--inferno-magenta);
+}
+
+.area-list li::before,
+.network-card li::before {
+  color: var(--inferno-orange);
+}
+
+.name-grid li a:hover,
+.name-grid li a:focus-visible {
+  border-bottom-color: var(--inferno-magenta) !important;
+}
+
+.name-grid li a:hover .pi-name,
+.name-grid li a:focus-visible .pi-name {
+  color: var(--inferno-magenta);
+}
+
+.community-learning {
+  border-top-color: rgba(91, 22, 122, .20);
+  border-left-color: var(--inferno-purple);
+  background: linear-gradient(
+    135deg,
+    rgba(91, 22, 122, .065),
+    rgba(228, 90, 54, .035)
+  );
+}
+
+.community-learning .role {
+  color: var(--inferno-magenta);
+}
+
+#main .community-learning .button.primary,
+#main .community-learning a.button.primary {
+  background-color: var(--inferno-purple) !important;
+  border-color: var(--inferno-purple) !important;
+}
+
+#main .community-learning .button.primary:hover,
+#main .community-learning .button.primary:focus-visible,
+#main .community-learning a.button.primary:hover,
+#main .community-learning a.button.primary:focus-visible {
+  background-color: var(--inferno-magenta) !important;
+  border-color: var(--inferno-magenta) !important;
+}
+
+#main .community-learning .button.primary:active,
+#main .community-learning a.button.primary:active {
+  background-color: #7f204f !important;
+  border-color: #7f204f !important;
+}
+
+.legacy-card {
+  border-top-color: rgba(228, 90, 54, .58);
+}
+
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible {
+  outline-color: var(--inferno-amber);
+}
+
+/* FIU is displayed at 85% of its former visual size, making it
+   approximately 15% smaller beside the VRIIC mark. */
+.institutional-band .fiu-logo {
+  width: min(13.4rem, 54vw) !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+@media screen and (max-width: 980px) {
+  #header.hero::after {
+    background:
+      linear-gradient(90deg,
+        rgba(9, 8, 11, .72) 0%,
+        rgba(9, 8, 11, .34) 75%,
+        rgba(9, 8, 11, .12) 100%),
+      linear-gradient(180deg,
+        rgba(9, 8, 11, .03) 24%,
+        rgba(9, 8, 11, .84) 100%);
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #header.hero {
+    background-color: var(--ink-deep) !important;
+  }
+
+  #header.hero::after {
+    background:
+      linear-gradient(180deg,
+        rgba(9, 8, 11, .08) 0%,
+        rgba(9, 8, 11, .14) 34%,
+        rgba(9, 8, 11, .84) 76%,
+        rgba(9, 8, 11, .97) 100%);
+  }
+
+  .institutional-band .fiu-logo {
+    width: min(11.9rem, 52vw) !important;
+  }
+}
+
+
+/* ========================================================================
+   ORGANIZATION LINKS, PILLARS BACKGROUND, AND FOOTER IDENTITY
+   ======================================================================== */
+
+/* Give the Ejes section its own quiet smoky-plum background, while
+   retaining the warm paper tone for the Network section. */
+#pillars {
+  background: #f1e8ed;
+}
+
+#network.soft-section {
+  background: var(--paper-warm);
+}
+
+/* Associated organizations are now linked. Keep the links typographic
+   and understated, with a small external-link cue. */
+.network-card li a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .4rem;
+  color: inherit !important;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+}
+
+.network-card li a::after {
+  content: "↗";
+  color: var(--inferno-magenta);
+  font-size: .72rem;
+  line-height: 1;
+  opacity: .72;
+}
+
+.network-card li a:hover,
+.network-card li a:focus-visible {
+  color: var(--inferno-magenta) !important;
+  border-bottom-color: rgba(156, 41, 100, .38);
+}
+
+/* The full CIRAS wordmark is used in the footer. */
+.footer-ciras {
+  width: min(34rem, 100%);
+  height: auto;
+  margin-bottom: 1.2rem;
+}
+
+@media screen and (max-width: 736px) {
+  #pillars {
+    background: #f3ebef;
+  }
+
+  .footer-ciras {
+    width: min(28rem, 100%);
+  }
 }

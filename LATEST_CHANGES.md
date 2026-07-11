@@ -62,3 +62,31 @@ Main pages:
 - Removed the redundant horizontal rule above the CIRAS isotype.
 - Replaced Stellar's light-blue Learning Community button with a solid violet button and darker violet hover state.
 - Removed the remaining teal tint from the Learning Community background.
+
+
+## Source-code cleanup
+
+- Removed all embedded CSS from the Spanish and English `index.html` files.
+- Moved the shared page CSS into `assets/css/ciras-ai.css`.
+- Removed the page-level inline hero style.
+- Moved the custom scrolling JavaScript into `assets/js/ciras-ai.js`.
+- Reformatted both HTML files with consistent indentation.
+- Added `MAINTENANCE.md` with a short guide to the site structure.
+
+
+## Inferno palette and source readability
+
+- Replaced the blue foundation with a near-black principal colour.
+- Added a restrained Inferno-inspired purple, magenta, orange and amber palette.
+- Reduced the FIU logo by 15% relative to its previous visual size beside VRIIC.
+- Reformatted all paragraphs as single readable source lines.
+- Removed formatting whitespace that could produce visible gaps around `<strong>` and `<em>` text.
+
+
+## Partner links and visual updates
+
+- Added links for Núcleo Milenio YEMS, Fundación Astrodiálogos, Fundación Biociencia, Oficina de la Nada and Grupo PO-EX.
+- Replaced the first research-pillar image with the supplied Vera C. Rubin Observatory photograph.
+- Added the supplied Rubin Observatory image credit in Spanish and English.
+- Gave the Ejes/Pillars section a pale smoky-plum background.
+- Replaced the compact footer mark with the supplied full CIRAS logo.

@@ -66,3 +66,24 @@ language pages.
 
 Image credits are listed in the footer of each language page. When replacing a
 pillar image, update both the image files in `images/pillars/` and the credit text.
+
+
+## Image credits near images
+
+The hero credit is stored in the `<header id="header">` element of each language
+page. Each pillar image is wrapped in `<figure class="pillar-media">` with an
+`<figcaption class="image-credit">`.
+
+The display styling is in `assets/css/ciras-ai.css`.
+
+
+## Chile section background
+
+The “Chile como laboratorio natural / Chile as a natural laboratory” background
+files are:
+
+- `images/backgrounds/chile-alma-panorama.jpg`
+- `images/backgrounds/chile-alma-panorama.webp`
+
+The background and overlay are controlled in `assets/css/ciras-ai.css`.
+The image credit link is stored in the Chile section of both language pages.

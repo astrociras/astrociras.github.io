@@ -90,3 +90,20 @@ Main pages:
 - Added the supplied Rubin Observatory image credit in Spanish and English.
 - Gave the Ejes/Pillars section a pale smoky-plum background.
 - Replaced the compact footer mark with the supplied full CIRAS logo.
+
+
+## Image-credit placement
+
+- Added the hero-image credit directly over the lower corner of the hero.
+- Added a source credit immediately beneath each of the three pillar images.
+- Linked each credit to the official ESO or NOIRLab image page.
+- Replaced the long duplicate footer credit with a short note.
+
+
+## Final image changes
+
+- Removed the visible credit overlay from the front-page hero.
+- Kept the hero-image credit in the footer.
+- Added the ESO ALMA panorama as the background of the Chile section.
+- Added a discreet source credit within the Chile section.
+- Added optimized JPEG and WebP versions of the new background.

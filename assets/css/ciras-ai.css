@@ -2294,3 +2294,285 @@ button:focus-visible,
     background: rgba(9, 8, 11, .52) !important;
   }
 }
+
+
+/* ========================================================================
+   THREE-LOGO INSTITUTIONAL BAND
+   ------------------------------------------------------------------------
+   CIRAS is shown before VRIIC and FIU. Desktop uses one restrained row;
+   mobile gives CIRAS its own line and places VRIIC/FIU below it.
+   ======================================================================== */
+
+.institutional-band .institutional-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+}
+
+.institutional-logo-row {
+  width: min(64rem, 94vw);
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) auto minmax(0, 1.38fr) auto minmax(0, .82fr);
+  align-items: center;
+  justify-items: center;
+  gap: clamp(.8rem, 2vw, 1.5rem);
+}
+
+.institution-logo {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain;
+}
+
+.institution-logo-ciras {
+  max-width: 17.5rem;
+}
+
+.institution-logo-vriic {
+  max-width: 21rem;
+}
+
+.institution-logo-fiu {
+  max-width: 11.4rem;
+}
+
+.institutional-separator {
+  width: 1px;
+  height: 3.1rem;
+  background: rgba(255, 255, 255, .22);
+}
+
+.institutional-band .funding-note {
+  margin: 0;
+  color: rgba(255, 255, 255, .68);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Override earlier individual logo-width rules. */
+.institutional-band .vriic-logo,
+.institutional-band .fiu-logo {
+  width: 100% !important;
+  max-height: none !important;
+}
+
+@media screen and (max-width: 736px) {
+  .institutional-band {
+    padding: .9rem .9rem 1rem;
+  }
+
+  .institutional-logo-row {
+    width: min(34rem, 92vw);
+    grid-template-columns: minmax(0, 1fr) minmax(0, .68fr);
+    grid-template-areas:
+      "ciras ciras"
+      "vriic fiu";
+    gap: .85rem 1.2rem;
+  }
+
+  .institution-logo-ciras {
+    grid-area: ciras;
+    max-width: 15rem;
+  }
+
+  .institution-logo-vriic {
+    grid-area: vriic;
+    max-width: 16.5rem;
+    justify-self: end;
+  }
+
+  .institution-logo-fiu {
+    grid-area: fiu;
+    max-width: 8.5rem;
+    justify-self: start;
+  }
+
+  .institutional-separator {
+    display: none;
+  }
+
+  .institutional-band .funding-note {
+    font-size: .66rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .institutional-logo-row {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "ciras"
+      "vriic"
+      "fiu";
+    gap: .8rem;
+  }
+
+  .institution-logo-ciras {
+    max-width: 13.5rem;
+  }
+
+  .institution-logo-vriic {
+    max-width: 15rem;
+    justify-self: center;
+  }
+
+  .institution-logo-fiu {
+    max-width: 8rem;
+    justify-self: center;
+  }
+}
+
+
+/* ========================================================================
+   REBALANCED INSTITUTIONAL LOGO ROW
+   ------------------------------------------------------------------------
+   Reduce the visual weight of VRIIC so CIRAS, VRIIC and FIU feel balanced.
+   ======================================================================== */
+
+.institutional-logo-row {
+  grid-template-columns:
+    minmax(0, 1.08fr)
+    auto
+    minmax(0, .92fr)
+    auto
+    minmax(0, .72fr);
+  gap: clamp(.8rem, 1.7vw, 1.25rem);
+}
+
+.institution-logo-ciras {
+  max-width: 16.5rem;
+}
+
+.institution-logo-vriic {
+  max-width: 15.6rem;
+}
+
+.institution-logo-fiu {
+  max-width: 10.2rem;
+}
+
+.institutional-separator {
+  height: 2.7rem;
+  opacity: .86;
+}
+
+@media screen and (max-width: 736px) {
+  .institutional-logo-row {
+    width: min(31rem, 90vw);
+    gap: .75rem 1rem;
+  }
+
+  .institution-logo-ciras {
+    max-width: 13.8rem;
+  }
+
+  .institution-logo-vriic {
+    max-width: 13rem;
+  }
+
+  .institution-logo-fiu {
+    max-width: 7.5rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .institution-logo-ciras {
+    max-width: 12.4rem;
+  }
+
+  .institution-logo-vriic {
+    max-width: 12rem;
+  }
+
+  .institution-logo-fiu {
+    max-width: 7.1rem;
+  }
+}
+
+
+/* ========================================================================
+   MOBILE INSTITUTIONAL LOGO BALANCE
+   ------------------------------------------------------------------------
+   On mobile, CIRAS occupies the first row. VRIIC and FIU share the second
+   row and are sized by visual height rather than width, giving them a much
+   more balanced perceived weight.
+   ======================================================================== */
+
+@media screen and (max-width: 736px) {
+  .institutional-band {
+    padding: .85rem .9rem .95rem;
+  }
+
+  .institutional-logo-row {
+    width: min(31rem, 92vw);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "ciras ciras"
+      "vriic fiu";
+    column-gap: 1.4rem;
+    row-gap: 1rem;
+  }
+
+  .institution-logo {
+    width: auto !important;
+    max-width: 100% !important;
+    object-fit: contain;
+  }
+
+  .institution-logo-ciras {
+    grid-area: ciras;
+    justify-self: center;
+    width: auto !important;
+    height: 4.35rem !important;
+    max-height: 4.35rem !important;
+  }
+
+  .institution-logo-vriic {
+    grid-area: vriic;
+    justify-self: center;
+    width: auto !important;
+    height: 3.05rem !important;
+    max-height: 3.05rem !important;
+  }
+
+  .institution-logo-fiu {
+    grid-area: fiu;
+    justify-self: center;
+    width: auto !important;
+    height: 3.05rem !important;
+    max-height: 3.05rem !important;
+  }
+
+  .institutional-separator {
+    display: none;
+  }
+
+  .institutional-band .funding-note {
+    margin-top: .1rem;
+    font-size: .64rem;
+    letter-spacing: .075em;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .institutional-logo-row {
+    width: min(28rem, 92vw);
+    column-gap: 1rem;
+    row-gap: .9rem;
+  }
+
+  .institution-logo-ciras {
+    height: 3.9rem !important;
+    max-height: 3.9rem !important;
+  }
+
+  .institution-logo-vriic,
+  .institution-logo-fiu {
+    height: 2.65rem !important;
+    max-height: 2.65rem !important;
+  }
+}

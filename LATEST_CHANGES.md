@@ -141,3 +141,27 @@ Main pages:
 - Added a localized dark gradient only behind the text.
 - Increased visibility of the petroglyphs, observatory and terrain.
 - Lightened the translucent VRIIC/FIU band slightly.
+
+
+## CIRAS logo in institutional band
+
+- Added the full CIRAS logo before VRIIC and FIU.
+- Reduced all three logo sizes for a more balanced desktop composition.
+- Added a two-row mobile layout to avoid crowding.
+- Added a vertical stack for very narrow screens.
+
+
+## VRIIC logo rebalancing
+
+- Reduced the VRIIC logo width substantially.
+- Slightly reduced CIRAS and FIU for a more coherent three-logo composition.
+- Narrowed the separators and spacing.
+- Reduced all three marks further on mobile.
+
+
+## Mobile logo-row refinement
+
+- Balanced VRIIC and FIU by assigning them the same displayed height.
+- Kept CIRAS centered on its own first row.
+- Reduced vertical padding and spacing in the institutional band.
+- Preserved a compact two-row layout down to narrow mobile screens.

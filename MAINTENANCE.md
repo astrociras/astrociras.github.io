@@ -148,3 +148,37 @@ are in the dedicated Chile photographic-background block in
 The final CSS block in `assets/css/ciras-ai.css` reduces the full-image dark
 overlay and adds a local gradient behind the hero text. This keeps the
 petroglyphs and observatory more visible without sacrificing readability.
+
+
+## Institutional logo band
+
+The logo order is:
+
+1. CIRAS
+2. VRIIC
+3. FIU USACH
+
+The HTML markup is shared conceptually between `index.html` and `en/index.html`.
+Sizing and mobile layout are controlled in the final
+“THREE-LOGO INSTITUTIONAL BAND” block of `assets/css/ciras-ai.css`.
+
+On standard mobile screens, CIRAS occupies the first row and VRIIC/FIU share the
+second. On very narrow screens, all three stack vertically.
+
+
+## Institutional logo balance
+
+The VRIIC logo is intentionally smaller than in the previous version so it no
+longer dominates the row. Final logo widths are controlled in the
+“REBALANCED INSTITUTIONAL LOGO ROW” block at the end of
+`assets/css/ciras-ai.css`.
+
+
+## Mobile institutional logos
+
+On mobile, CIRAS occupies the first row and VRIIC/FIU share the second row.
+The latter two are sized by equal visual height rather than width, preventing
+FIU from appearing disproportionately large and VRIIC from appearing too small.
+
+The final rules are in the “MOBILE INSTITUTIONAL LOGO BALANCE” block at the
+end of `assets/css/ciras-ai.css`.

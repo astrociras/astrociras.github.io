@@ -142,3 +142,9 @@ The Chile-section overlay is intentionally strongest near the upper text and
 fades toward the bottom, leaving the ALMA antenna field unobscured. These rules
 are in the dedicated Chile photographic-background block in
 `assets/css/ciras-ai.css`.
+
+## Lighter hero overlay
+
+The final CSS block in `assets/css/ciras-ai.css` reduces the full-image dark
+overlay and adds a local gradient behind the hero text. This keeps the
+petroglyphs and observatory more visible without sacrificing readability.

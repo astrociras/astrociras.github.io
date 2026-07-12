@@ -134,3 +134,10 @@ Main pages:
 - Repositioned the Chile-section text toward the upper-left.
 - Changed the Chile overlay so it fades before the lower antenna field.
 - Reduced the dark treatment around the ALMA antennas and kept the image credit discreet.
+
+## Lighter hero treatment
+
+- Reduced the global hero-overlay opacity.
+- Added a localized dark gradient only behind the text.
+- Increased visibility of the petroglyphs, observatory and terrain.
+- Lightened the translucent VRIIC/FIU band slightly.

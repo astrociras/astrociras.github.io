@@ -107,3 +107,30 @@ Main pages:
 - Added the ESO ALMA panorama as the background of the Chile section.
 - Added a discreet source credit within the Chile section.
 - Added optimized JPEG and WebP versions of the new background.
+
+
+## Hero and institutional-band refinement
+
+- Replaced the hero with the ALMA night-sky image `ann12099a`.
+- Included `potw1723a` as an optimized optional hero, commented out in CSS.
+- Updated the hero credit in the Spanish and English footers.
+- Moved the institutional accent line below the VRIIC/FIU logos.
+- Simplified the line to a single USACH green.
+
+
+## Continuous potw1723a hero
+
+- Activated `potw1723a` as the main hero image.
+- Extended the same background behind the VRIIC/FIU logo band.
+- Added a shared semi-transparent gradient across the complete hero stage.
+- Kept the logo band readable with a translucent dark backdrop.
+- Retained `ann12099a` as the commented optional alternative.
+
+
+## Hero crop and ALMA visibility
+
+- Cropped the active `potw1723a` hero to remove the bright object at upper right.
+- Retained more visual weight on the night sky, observatory and local territory.
+- Repositioned the Chile-section text toward the upper-left.
+- Changed the Chile overlay so it fades before the lower antenna field.
+- Reduced the dark treatment around the ALMA antennas and kept the image credit discreet.

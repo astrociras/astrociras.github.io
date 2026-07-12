@@ -87,3 +87,58 @@ files are:
 
 The background and overlay are controlled in `assets/css/ciras-ai.css`.
 The image credit link is stored in the Chile section of both language pages.
+
+
+## Hero background options
+
+The active hero files are:
+
+- `images/backgrounds/hero-alma-night.jpg`
+- `images/backgrounds/hero-alma-night.webp`
+
+An optional alternative is retained as:
+
+- `images/backgrounds/hero-la-silla-optional.jpg`
+- `images/backgrounds/hero-la-silla-optional.webp`
+
+The active and commented alternative CSS blocks are at the end of
+`assets/css/ciras-ai.css`.
+
+Active credit:
+ALMA (ESO/NAOJ/NRAO)/B. Tafreshi (twanight.org)
+
+Optional-image credit:
+ESO/B. Tafreshi
+
+
+## Continuous hero and logo band
+
+The active hero is `potw1723a`, stored as:
+
+- `images/backgrounds/hero-la-silla-optional.jpg`
+- `images/backgrounds/hero-la-silla-optional.webp`
+
+The hero and the VRIIC/FIU band are wrapped in `.hero-stage`, allowing one
+continuous background image and overlay. The logo band uses a translucent dark
+panel so the image remains visible behind it.
+
+The ALMA image remains available as the commented alternative in
+`assets/css/ciras-ai.css`.
+
+
+## Cropped potw1723a hero
+
+The active hero is now a left-weighted crop of `potw1723a`, stored as:
+
+- `images/backgrounds/hero-la-silla-cropped.jpg`
+- `images/backgrounds/hero-la-silla-cropped.webp`
+
+The crop removes the bright object at the upper-right while retaining the
+night sky, observatory and foreground territory.
+
+## Chile-section antenna visibility
+
+The Chile-section overlay is intentionally strongest near the upper text and
+fades toward the bottom, leaving the ALMA antenna field unobscured. These rules
+are in the dedicated Chile photographic-background block in
+`assets/css/ciras-ai.css`.

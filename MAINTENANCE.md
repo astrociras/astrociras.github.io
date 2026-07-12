@@ -182,3 +182,16 @@ FIU from appearing disproportionately large and VRIIC from appearing too small.
 
 The final rules are in the “MOBILE INSTITUTIONAL LOGO BALANCE” block at the
 end of `assets/css/ciras-ai.css`.
+
+
+## Three-pillar framing
+
+The first pillar is titled “Exploración del universo / Exploring the universe”.
+Artificial intelligence is described in the introductory paragraph as a
+transversal thread connecting all three pillars and the centre's research,
+training and engagement.
+
+## FIU acknowledgement
+
+The complete FIU funding acknowledgement is stored in the footer of both
+language pages. The project code is `FIUF137139-USACH`.

@@ -165,3 +165,12 @@ Main pages:
 - Kept CIRAS centered on its own first row.
 - Reduced vertical padding and spacing in the institutional band.
 - Preserved a compact two-row layout down to narrow mobile screens.
+
+
+## Content refinements
+
+- Shortened Gloria Baigorrotegui’s displayed name.
+- Changed the first pillar title to “Exploración del universo / Exploring the universe”.
+- Reframed AI as a transversal thread connecting all three pillars and CIRAS-AI activities.
+- Expanded the first pillar description to include astrophysics, astrostatistics and astroinformatics.
+- Replaced the short project-code acknowledgement with the full official FIU funding statement.

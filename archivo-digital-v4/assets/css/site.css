@@ -266,6 +266,22 @@ h1 {
 .pin-b { left: 52%; top: 42%; }
 .pin-c { left: 77%; top: 31%; }
 
+.installation p { max-width: 32rem; }
+.observatory-stack { margin-top: 2.2rem; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.observatory-item { display: grid; grid-template-columns: 52px 1fr; gap: 1rem; align-items: center; padding: 1.05rem 0; border-bottom: 1px solid var(--line); }
+.observatory-item strong { display: block; font-family: var(--serif); font-size: 1.3rem; font-weight: 400; line-height: 1.1; }
+.observatory-item small { display: block; margin-top: .22rem; color: var(--muted); font-size: .72rem; letter-spacing: .02em; }
+.observatory-mark { width: 36px; height: 36px; display: block; position: relative; opacity: .8; }
+.observatory-mark.dish::before { content: ""; position:absolute; width:26px; height:13px; border:1.4px solid var(--accent); border-top:0; border-radius:0 0 24px 24px; transform: rotate(-18deg); left:4px; top:7px; }
+.observatory-mark.dish::after { content:""; position:absolute; width:1px; height:18px; background:var(--accent); left:19px; top:17px; transform:rotate(17deg); transform-origin:top; }
+.observatory-mark.mirror::before { content:""; position:absolute; inset:3px; border:1px solid var(--accent); transform:rotate(30deg); }
+.observatory-mark.mirror::after { content:""; position:absolute; width:10px; height:10px; border:1px solid var(--accent); border-radius:50%; left:13px; top:13px; }
+.observatory-mark.aperture::before { content:""; position:absolute; inset:3px; border:1px solid var(--accent); border-radius:50%; }
+.observatory-mark.aperture::after { content:""; position:absolute; width:22px; height:1px; background:var(--accent); left:7px; top:18px; box-shadow:0 -7px 0 rgba(188,160,120,.6),0 7px 0 rgba(188,160,120,.6); }
+.observatory-mark.wave::before, .observatory-mark.wave::after { content:""; position:absolute; border:1px solid var(--accent); border-left:0; border-top:0; border-bottom:0; border-radius:0 50% 50% 0; }
+.observatory-mark.wave::before { width:16px; height:24px; left:7px; top:6px; }
+.observatory-mark.wave::after { width:25px; height:34px; left:2px; top:1px; opacity:.55; }
+
 .team-list { list-style: none; margin: 0; padding: 0; }
 .team-list li { padding: 1.65rem 0; border-bottom: 1px solid var(--line); }
 .team-list li:first-child { padding-top: .3rem; }
@@ -309,9 +325,7 @@ h1 {
   align-items: center;
   justify-content: center;
   padding: 1.2rem 2rem;
-  border-right: 1px solid var(--line-light);
 }
-.logo-cell:last-child { border-right: 0; }
 .logo-usach img { max-width: 95px; max-height: 95px; object-fit: contain; }
 .logo-dicyt img { width: min(100%, 430px); }
 .logo-ciras img { width: min(100%, 390px); }
@@ -347,9 +361,6 @@ h1 {
   .team-list li { border-bottom: 0; border-right: 1px solid var(--line); padding: .8rem 1rem .8rem 0; }
   .team-list li:last-child { border-right: 0; }
   .logo-grid { grid-template-columns: 1fr 1fr; }
-  .logo-cell:nth-child(2) { border-right: 0; }
-  .logo-cell:nth-child(-n+2) { border-bottom: 1px solid var(--line-light); }
-  .logo-cell:nth-child(3) { border-bottom: 1px solid var(--line-light); }
 }
 
 @media (max-width: 720px) {

@@ -2,6 +2,7 @@
   --ink: #171713;
   --charcoal: #20201e;
   --paper: #f2f0eb;
+  --paper-3: #e7e2d8;
   --paper-2: #ece9e2;
   --white: #f8f7f2;
   --muted: #74716b;
@@ -251,7 +252,19 @@ h1 {
 .platform-ui > div span:nth-child(2) { width: 110px; }
 .platform-ui b { width: 6px; height: 6px; border-radius: 50%; background: rgba(23,23,19,.27); }
 .platform-ui em { width: 55px; height: 17px; margin-left: 1rem; border: 1px solid rgba(23,23,19,.20); }
-.platform-note { font-size: .76rem !important; color: var(--muted) !important; margin-top: 1rem !important; }
+.platform-features { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; gap: .65rem; }
+.platform-features li { position: relative; padding-left: 1rem; font-size: .85rem; color: #4b4944; }
+.platform-features li::before { content: ""; position: absolute; left: 0; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); transform: translateY(-50%); }
+.map-preview { background: linear-gradient(180deg, rgba(188,160,120,.05), rgba(23,23,19,.02)); }
+.map-lines { position:absolute; inset:0; width:100%; height:100%; }
+.map-lines path { fill:none; stroke: rgba(23,23,19,.25); stroke-width: 1.15; }
+.map-lines path.secondary { stroke: rgba(23,23,19,.12); stroke-dasharray: 4 5; }
+.map-tag { position:absolute; left:1rem; top:1rem; display:inline-flex; align-items:center; gap:.45rem; padding:.35rem .7rem; border: 1px solid rgba(23,23,19,.16); border-radius: 999px; font-size:.68rem; letter-spacing:.08em; text-transform: uppercase; color: rgba(23,23,19,.62); background: rgba(255,255,255,.55); }
+.map-pin { position:absolute; width:14px; height:14px; border-radius:50% 50% 50% 0; background: var(--accent); transform: rotate(-45deg); box-shadow: 0 0 0 4px rgba(188,160,120,.12); }
+.map-pin::after { content:""; position:absolute; width:5px; height:5px; border-radius:50%; background:var(--paper); left:4px; top:4px; }
+.pin-a { left: 19%; top: 58%; }
+.pin-b { left: 52%; top: 42%; }
+.pin-c { left: 77%; top: 31%; }
 
 .team-list { list-style: none; margin: 0; padding: 0; }
 .team-list li { padding: 1.65rem 0; border-bottom: 1px solid var(--line); }
@@ -286,7 +299,7 @@ h1 {
 .support-title i { height: 1px; flex: 1; background: var(--line-light); }
 .logo-grid {
   display: grid;
-  grid-template-columns: .7fr 1.6fr 1fr 1.35fr;
+  grid-template-columns: 1.7fr .9fr 1fr 1.35fr;
   align-items: center;
   margin-top: 2.2rem;
 }
@@ -300,10 +313,14 @@ h1 {
 }
 .logo-cell:last-child { border-right: 0; }
 .logo-usach img { max-width: 95px; max-height: 95px; object-fit: contain; }
-.logo-dicyt img { width: min(100%, 410px); }
+.logo-dicyt img { width: min(100%, 430px); }
 .logo-ciras img { width: min(100%, 390px); }
-.logo-fiu { flex-direction: column; align-items: flex-start; font-size: clamp(1.15rem, 2.1vw, 1.9rem); font-weight: 300; letter-spacing: .10em; line-height: 1.4; }
-.footer-note { text-align: center; margin: 2rem 0 0; color: rgba(255,255,255,.48); font-size: .72rem; }
+.logo-yems { flex-direction: column; gap: .5rem; }
+.logo-yems img { width: min(100%, 180px); object-fit: contain; }
+.logo-fiu { flex-direction: column; align-items: flex-start; font-size: clamp(1rem, 1.7vw, 1.45rem); font-weight: 300; letter-spacing: .08em; line-height: 1.35; }
+.logo-fiu small, .logo-yems small { display:block; margin-top:.3rem; font-size:.74rem; letter-spacing:.08em; color: rgba(255,255,255,.62); }
+.funding-note { text-align:center; margin: 1.25rem 0 0; color: rgba(255,255,255,.70); font-size: .8rem; }
+.footer-note { text-align: center; margin: .9rem 0 0; color: rgba(255,255,255,.48); font-size: .72rem; }
 
 @media (max-width: 1040px) {
   .hero { height: 820px; }
@@ -332,6 +349,7 @@ h1 {
   .logo-grid { grid-template-columns: 1fr 1fr; }
   .logo-cell:nth-child(2) { border-right: 0; }
   .logo-cell:nth-child(-n+2) { border-bottom: 1px solid var(--line-light); }
+  .logo-cell:nth-child(3) { border-bottom: 1px solid var(--line-light); }
 }
 
 @media (max-width: 720px) {
@@ -364,8 +382,10 @@ h1 {
   .logo-usach img { max-width: 78px; }
   .logo-dicyt img { width: min(94%, 410px); }
   .logo-ciras img { width: min(92%, 360px); }
-  .logo-fiu { align-items: center; }
+  .logo-fiu, .logo-yems { align-items: center; }
+  .platform-features li { font-size: .82rem; }
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
